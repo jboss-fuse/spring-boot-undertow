@@ -34,7 +34,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <spring-boot.version>4.1.0</spring-boot.version>
-    <undertow-ee.version>2.0.0.Final</undertow-ee.version>
+    <undertow-ee.version>2.0.1.Final</undertow-ee.version>
   </properties>
 
   <dependencyManagement>

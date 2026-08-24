@@ -8,7 +8,7 @@ This project is a fork of the Undertow embedded server support originally develo
 
 Undertow support was [removed from Spring Boot 4.0](https://github.com/spring-projects/spring-boot/issues/46917) because no Servlet 6.1-compatible Undertow release existed at the time. The Spring Boot team has [explicitly declined](https://github.com/spring-projects/spring-boot/issues/50381) re-adding it upstream, recommending a community-maintained third-party starter instead.
 
-This project fills that gap using [Undertow EE](https://github.com/undertow-io/undertow-ee) 2.0.0.Final (which implements Jakarta Servlet 6.1) and the modularised Undertow support from Spring Boot 4.0.0-M1 as the starting point.
+This project fills that gap using [Undertow EE](https://github.com/undertow-io/undertow-ee) 2.0.1.Final (which implements Jakarta Servlet 6.1) and the modularised Undertow support from Spring Boot 4.0.0-M1 as the starting point.
 
 ## Project Structure
 
@@ -76,7 +76,7 @@ This project uses the Spring Boot Web Server TCK (`spring-boot-web-server` test-
 # 1. Clone and build Spring Boot to install test-fixtures to your local Maven repo
 git clone https://github.com/spring-projects/spring-boot.git
 cd spring-boot
-git checkout v4.0.6
+git checkout v4.1.0
 ./gradlew publishToMavenLocal
 
 # 2. Run the TCK tests with the 'tck' profile
@@ -84,7 +84,7 @@ cd /path/to/spring-boot-undertow
 mvn test -pl module/spring-boot-undertow -Ptck
 ```
 
-**Test results:** 222 tests, 214 pass, 6 skipped, 8 known incompatibilities:
+**Test results:** 223 tests, 215 pass, 6 skipped, 8 known incompatibilities:
 
 - **5 log-message pattern tests** (inherited from TCK): The abstract base class uses a `(Jetty|Tomcat)` regex that cannot be modified. Equivalent Undertow-specific log-message tests are provided as `undertowStartedLogMessage*`.
 - **3 reactive stop/graceful-shutdown tests** (inherited from TCK): `Undertow.stop()` tears down the XNIO worker immediately. The old native `UndertowHttpHandlerAdapter` (removed from Spring Framework 7.0) kept worker threads busy for the request duration; the Servlet bridge dispatches to the servlet engine's async executor instead. Servlet-based graceful shutdown works correctly.
@@ -93,7 +93,7 @@ mvn test -pl module/spring-boot-undertow -Ptck
 
 - Java 17+
 - Maven 3.6+
-- Spring Boot 4.0.5+
+- Spring Boot 4.1.0+
 
 ## License
 
