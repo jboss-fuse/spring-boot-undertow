@@ -33,7 +33,7 @@
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <spring-boot.version>4.1.0</spring-boot.version>
+    <spring-boot.version>4.1.1</spring-boot.version>
     <undertow-ee.version>2.0.1.Final</undertow-ee.version>
   </properties>
 
