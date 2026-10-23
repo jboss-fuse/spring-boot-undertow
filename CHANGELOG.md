@@ -1,9 +1,9 @@
 # Changelog
 
-## 1.0.0.Alpha1
+## 1.0.0
 
 First release under the `io.undertow` group: `io.undertow:undertow-spring-boot-starter`
-and `io.undertow:undertow-spring-boot-autoconfigure`. Built against Spring Boot 4.1.1
+and `io.undertow:undertow-spring-boot-autoconfigure`. Built against Spring Boot 4.1.2
 and Undertow EE 2.0.2.Final (Undertow core 2.4.3.Final).
 
 ### Breaking changes (with backward compatibility)
