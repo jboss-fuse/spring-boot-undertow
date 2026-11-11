@@ -1,0 +1,48 @@
+<!-- This file specifies a spotbugs filter for excluding reports that
+     should not be considered errors.
+
+     The format of this file is documented at:
+
+       https://spotbugs.readthedocs.io/en/latest/filter.html
+
+     When possible, please specify the full names of the bug codes,
+     using the pattern attribute, to make it clearer what reports are
+     being suppressed.  You can find a listing of codes at:
+
+       https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html
+  -->
+
+<FindBugsFilter>
+
+    <!-- We don't mind having redundant checks for null, it is more error prone to later changes -->
+    <Match>
+        <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE"/>
+    </Match>
+
+    <!-- Ignore returning references to internal representations of objects -->
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+
+    <!-- Ignoring when internal representation stores reference to external representation -->
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP2"/>
+    </Match>
+
+    <!-- False positive - it is safe to throw an exception from constructors -->
+    <Match>
+        <Bug pattern="CT_CONSTRUCTOR_THROW"/>
+    </Match>
+
+    <!-- Ignore spotbugs reports from incomplete detectors -->
+    <Match>
+        <Bug pattern="TESTING"/>
+    </Match>
+
+    <!-- File.delete()/mkdirs() return values intentionally ignored in session persistence -->
+    <Match>
+        <Bug pattern="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE"/>
+        <Class name="io.undertow.springboot.servlet.FileSessionPersistence"/>
+    </Match>
+
+</FindBugsFilter>

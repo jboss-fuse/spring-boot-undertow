@@ -1,0 +1,5 @@
+org.springframework.boot.EnvironmentPostProcessor=\
+io.undertow.springboot.autoconfigure.legacy.LegacyUndertowPropertyMapper
+
+org.springframework.context.ApplicationListener=\
+io.undertow.springboot.autoconfigure.legacy.LegacyUndertowPropertyReport

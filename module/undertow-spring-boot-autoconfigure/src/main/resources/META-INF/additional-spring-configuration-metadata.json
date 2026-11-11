@@ -1,0 +1,253 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "server.undertow.max-http-post-size",
+      "type": "org.springframework.util.unit.DataSize",
+      "description": "Maximum size of the HTTP post content.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.max-http-post-size",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.buffer-size",
+      "type": "org.springframework.util.unit.DataSize",
+      "description": "Size of each buffer.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.buffer-size",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.direct-buffers",
+      "type": "java.lang.Boolean",
+      "description": "Whether to allocate buffers outside the Java heap.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.direct-buffers",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.eager-filter-init",
+      "type": "java.lang.Boolean",
+      "description": "Whether servlet filters should be initialized on startup.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.eager-filter-init",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.max-parameters",
+      "type": "java.lang.Integer",
+      "description": "Maximum number of query or path parameters that are allowed.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.max-parameters",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.max-headers",
+      "type": "java.lang.Integer",
+      "description": "Maximum number of headers that are allowed.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.max-headers",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.max-cookies",
+      "type": "java.lang.Integer",
+      "description": "Maximum number of cookies that are allowed.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.max-cookies",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.decode-slash",
+      "type": "java.lang.Boolean",
+      "description": "Whether encoded slash characters (%2F) should be decoded.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.decode-slash",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.decode-url",
+      "type": "java.lang.Boolean",
+      "description": "Whether the URL should be decoded.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.decode-url",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.url-charset",
+      "type": "java.nio.charset.Charset",
+      "description": "Charset used to decode URLs.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.url-charset",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.always-set-keep-alive",
+      "type": "java.lang.Boolean",
+      "description": "Whether the 'Connection: keep-alive' header should be added to all responses.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.always-set-keep-alive",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.no-request-timeout",
+      "type": "java.time.Duration",
+      "description": "Amount of time a connection can sit idle without processing a request.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.no-request-timeout",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.preserve-path-on-forward",
+      "type": "java.lang.Boolean",
+      "description": "Whether to preserve the path of a request when it is forwarded.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.preserve-path-on-forward",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.accesslog.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable the access log.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.accesslog.enabled",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.accesslog.pattern",
+      "type": "java.lang.String",
+      "description": "Format pattern for access logs.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.accesslog.pattern",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.accesslog.prefix",
+      "type": "java.lang.String",
+      "description": "Log file name prefix.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.accesslog.prefix",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.accesslog.suffix",
+      "type": "java.lang.String",
+      "description": "Log file name suffix.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.accesslog.suffix",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.accesslog.dir",
+      "type": "java.io.File",
+      "description": "Undertow access log directory.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.accesslog.dir",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.accesslog.rotate",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable access log rotation.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.accesslog.rotate",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.threads.io",
+      "type": "java.lang.Integer",
+      "description": "Number of I/O threads to create for the worker.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.threads.io",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.threads.worker",
+      "type": "java.lang.Integer",
+      "description": "Number of worker threads.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.threads.worker",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.options.server",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "Server options as defined in io.undertow.UndertowOptions.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.options.server",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.options.socket",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "Socket options as defined in org.xnio.Options.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.server.options.socket",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    },
+    {
+      "name": "server.undertow.buffers-per-region",
+      "type": "java.lang.Integer",
+      "description": "Number of buffer per region.",
+      "deprecation": {
+        "level": "error"
+      }
+    },
+    {
+      "name": "management.server.undertow.accesslog.prefix",
+      "type": "java.lang.String",
+      "description": "Management log file name prefix.",
+      "deprecation": {
+        "level": "warning",
+        "replacement": "undertow.management.accesslog.prefix",
+        "reason": "Moved out of the Spring Boot reserved namespace."
+      }
+    }
+  ]
+}
