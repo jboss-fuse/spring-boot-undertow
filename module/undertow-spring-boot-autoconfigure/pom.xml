@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <parent>
+    <groupId>io.undertow</groupId>
+    <artifactId>undertow-spring-boot-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>undertow-spring-boot-autoconfigure</artifactId>
+  <name>undertow-spring-boot-autoconfigure</name>
+  <description>Spring Boot Undertow</description>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <properties>
+    <java.version>17</java.version>
+    <maven.compiler.release>17</maven.compiler.release>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.undertow.ee</groupId>
+      <artifactId>undertow-servlet</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.undertow.ee</groupId>
+      <artifactId>undertow-websockets</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <!-- Core Boot types -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot</artifactId>
+    </dependency>
+
+    <!-- @AutoConfiguration, ConditionalOnClass, ConditionalOnMissingBean, etc. -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+    </dependency>
+
+    <!-- Servlet web server abstractions / servlet web server auto-config support -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-web-server</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-core</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webflux</artifactId>
+      <optional>true</optional>
+    </dependency>
+   
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents.client5</groupId>
+      <artifactId>httpclient5</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.projectreactor.netty</groupId>
+      <artifactId>reactor-netty-http</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-client</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.http2</groupId>
+      <artifactId>jetty-http2-client</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.http2</groupId>
+      <artifactId>jetty-http2-client-transport</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- Test compilation and execution are skipped by default because the TCK
+       depends on spring-boot-web-server test-fixtures which are not published
+       to Maven Central. Activate with -Ptck after building Spring Boot locally. -->
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <release>${maven.compiler.release}</release>
+            <skip>false</skip>
+            <proc>full</proc>
+            <annotationProcessorPaths>
+              <path>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${version.org.springframework.boot}</version>
+              </path>
+            </annotationProcessorPaths>
+            <testExcludes>
+              <testExclude>**/servlet/UndertowServletWebServerFactoryTests.java</testExclude>
+              <testExclude>**/reactive/UndertowReactiveWebServerFactoryTests.java</testExclude>
+              <testExclude>**/servlet/UndertowServletWebServerAutoConfigurationTests.java</testExclude>
+              <testExclude>**/reactive/UndertowReactiveWebServerAutoConfigurationTests.java</testExclude>
+              <testExclude>**/servlet/UndertowServletWebServerServletContextListenerTests.java</testExclude>
+              <testExclude>**/servlet/UndertowServletWebServerMvcIntegrationTests.java</testExclude>
+            </testExcludes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <skipTests>false</skipTests>
+            <excludes>
+              <exclude>**/servlet/UndertowServletWebServerFactoryTests.java</exclude>
+              <exclude>**/reactive/UndertowReactiveWebServerFactoryTests.java</exclude>
+              <exclude>**/servlet/UndertowServletWebServerAutoConfigurationTests.java</exclude>
+              <exclude>**/reactive/UndertowReactiveWebServerAutoConfigurationTests.java</exclude>
+              <exclude>**/servlet/UndertowServletWebServerServletContextListenerTests.java</exclude>
+              <exclude>**/servlet/UndertowServletWebServerMvcIntegrationTests.java</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <!-- Activate with -Ptck after building Spring Boot locally:
+         cd spring-boot && ./gradlew publishToMavenLocal -->
+    <profile>
+      <id>tck</id>
+      <properties>
+        <!-- Skip the inherited TCK startedLogMessageWith* tests: they expect a
+             (Jetty|Netty|Tomcat) started log message and are package-private, so they
+             cannot be overridden. The undertowStartedLogMessage* tests cover the Undertow
+             message. Passing -Dtest on the command line replaces this filter. -->
+        <test>!Undertow*WebServerFactoryTests#startedLogMessageWith*</test>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-web-server</artifactId>
+          <version>${version.org.springframework.boot}</version>
+          <classifier>test-fixtures</classifier>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-test-support</artifactId>
+          <version>${version.org.springframework.boot}</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven.resolver</groupId>
+          <artifactId>maven-resolver-connector-basic</artifactId>
+          <version>1.9.27</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven.resolver</groupId>
+          <artifactId>maven-resolver-impl</artifactId>
+          <version>1.9.27</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven</groupId>
+          <artifactId>maven-resolver-provider</artifactId>
+          <version>3.9.13</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven.resolver</groupId>
+          <artifactId>maven-resolver-transport-http</artifactId>
+          <version>1.9.27</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <skip>false</skip>
+              <testExcludes combine.self="override" />
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <skipTests>false</skipTests>
+              <excludes combine.self="override" />
+              <argLine>--add-opens java.base/java.net=ALL-UNNAMED</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

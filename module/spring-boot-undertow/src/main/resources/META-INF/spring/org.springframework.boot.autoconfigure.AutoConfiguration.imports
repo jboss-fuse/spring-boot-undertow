@@ -1,5 +1,0 @@
-com.redhat.integration.undertow.autoconfigure.actuate.web.server.UndertowReactiveManagementContextAutoConfiguration
-com.redhat.integration.undertow.autoconfigure.actuate.web.server.UndertowServletManagementContextAutoConfiguration
-com.redhat.integration.undertow.autoconfigure.reactive.UndertowReactiveWebServerAutoConfiguration
-com.redhat.integration.undertow.autoconfigure.servlet.UndertowServletWebServerAutoConfiguration
-com.redhat.integration.undertow.autoconfigure.metrics.UndertowMetricsAutoConfiguration

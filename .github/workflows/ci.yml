@@ -1,0 +1,48 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+name: Build and Test spring-boot-undertow
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 0 * * *' # Every day at 00:00 UTC
+
+# Only run the latest job
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: JDK ${{ matrix.jdk }} - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        jdk: [17, 21, 25]
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up JDK ${{ matrix.jdk }}
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.jdk }}
+          cache: 'maven'
+      - name: Print Version
+        run: ./mvnw -v
+      - name: Build (compile + checkstyle + spotbugs)
+        run: ./mvnw -U -B -fae verify -Dfindbugs
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: surefire-reports-${{ matrix.jdk }}-${{ matrix.os }}
+          path: |
+            **/surefire*-reports/*.txt
+            **/*.dump*

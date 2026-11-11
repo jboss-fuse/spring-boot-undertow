@@ -1,0 +1,5 @@
+io.undertow.springboot.autoconfigure.actuate.web.server.UndertowReactiveManagementContextAutoConfiguration
+io.undertow.springboot.autoconfigure.actuate.web.server.UndertowServletManagementContextAutoConfiguration
+io.undertow.springboot.autoconfigure.reactive.UndertowReactiveWebServerAutoConfiguration
+io.undertow.springboot.autoconfigure.servlet.UndertowServletWebServerAutoConfiguration
+io.undertow.springboot.autoconfigure.metrics.UndertowMetricsAutoConfiguration
