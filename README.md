@@ -93,13 +93,13 @@ This project uses the Spring Boot Web Server TCK (`spring-boot-web-server` test-
 # 1. Build the test fixtures from the matching Spring Boot tag and install them into your local Maven repo
 git clone https://github.com/spring-projects/spring-boot.git
 cd spring-boot
-git checkout v4.1.2
+git checkout v4.1.3
 ./gradlew :module:spring-boot-web-server:testFixturesJar :test-support:spring-boot-test-support:jar
-mvn install:install-file -Dfile=module/spring-boot-web-server/build/libs/spring-boot-web-server-4.1.2-test-fixtures.jar \
-  -DgroupId=org.springframework.boot -DartifactId=spring-boot-web-server -Dversion=4.1.2 \
+mvn install:install-file -Dfile=module/spring-boot-web-server/build/libs/spring-boot-web-server-4.1.3-test-fixtures.jar \
+  -DgroupId=org.springframework.boot -DartifactId=spring-boot-web-server -Dversion=4.1.3 \
   -Dclassifier=test-fixtures -Dpackaging=jar -DgeneratePom=false
-mvn install:install-file -Dfile=test-support/spring-boot-test-support/build/libs/spring-boot-test-support-4.1.2.jar \
-  -DgroupId=org.springframework.boot -DartifactId=spring-boot-test-support -Dversion=4.1.2 \
+mvn install:install-file -Dfile=test-support/spring-boot-test-support/build/libs/spring-boot-test-support-4.1.3.jar \
+  -DgroupId=org.springframework.boot -DartifactId=spring-boot-test-support -Dversion=4.1.3 \
   -Dpackaging=jar -DgeneratePom=true
 
 # 2. Run the TCK tests with the 'tck' profile
